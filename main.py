@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
+import asyncio
 
 intents = discord.Intents.all()
-
 bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.event
@@ -17,24 +17,33 @@ async def lasttoleave(ctx):
 
     channel = ctx.author.voice.channel
 
-    await ctx.send(f"Joining voice channel: {channel.name}")
+    embed = discord.Embed(
+        title="Last to Leave Event",
+        description=f"Joining voice channel: {channel.name}",
+        color=0x00ff00
+    )
+    await ctx.send(embed=embed)
+
     vc = await channel.connect()
 
-    def check(member, before, after):
-        return len(channel.members) == 1
+    # Get a list of only human users in the channel
+    human_members = [member for member in channel.members if not member.bot]
 
-    await bot.wait_for('voice_state_update', check=check)
-    winner = channel.members[0]
+    # Continuously check for the last human member in the channel
+    while len(human_members) > 1:
+        await asyncio.sleep(1)  # Wait for 1 second before checking again
+        human_members = [member for member in channel.members if not member.bot]
 
-    # Create an Embed object
+    winner = human_members[0]
+
     embed = discord.Embed(
-        title="Last to Leave Event Winner",
+        title="Last to Leave Event",
         description=f"{winner.mention} is the winner of the last to leave event!",
-        color=0x00ff00  # Green color
+        color=0xff0000
     )
-
     await ctx.send(embed=embed)
 
     await vc.disconnect()
+
 
 bot.run('TOKEN')
