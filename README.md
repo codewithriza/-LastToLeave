@@ -23,3 +23,7 @@ LastToLeaveBot is a Discord bot built with discord.py that allows users to start
 ## Contributing
 
 If you'd like to contribute to this project, feel free to fork the repository and submit a pull request. All contributions are welcome!
+
+---
+[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/users/887532157747212370)
+[![X](https://img.shields.io/badge/X-%23000000.svg?style=for-the-badge&logo=X&logoColor=white)](https://twitter.com/codewithriza)
