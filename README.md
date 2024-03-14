@@ -7,7 +7,7 @@ LastToLeaveBot is a Discord bot built with discord.py that allows users to start
 1. Clone this repository to your local machine.
 2. Install the required dependencies using `pip install -r requirements.txt`.
 3. Create a new Discord application and bot on the [Discord Developer Portal](https://discord.com/developers/applications).
-4. Copy your bot token from the "Bot" section of your application and replace `'YOUR_TOKEN'` in `main.py` with your actual bot token.
+4. Copy your bot token from the "Bot" section of your application and replace `'TOKEN'` in `main.py` with your actual bot token.
 5. Run the bot using `python main.py`.
 
 ## Commands
